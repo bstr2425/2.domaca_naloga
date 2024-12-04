@@ -1,9 +1,9 @@
-% Pot do datotek
+
 path_vozlisc = './vozlisca_temperature_dn2.txt';
 path_cells = './celice_dn2.txt';
 
 % x y in temp
-opts = detectImportOptions(path_vozlisc, 'NumHeaderLines', 4); % Preskoči prve 4 vrstice
+opts = detectImportOptions(path_vozlisc, 'NumHeaderLines', 4); 
 opts.VariableNames = {'x', 'y', 'temperatura'};
 opts.Delimiter = ',';
 vozlisca_data = readtable(path_vozlisc, opts);
@@ -73,7 +73,7 @@ function [x_unique, y_unique, T_grid] = pripraviMreznePodatke(x, y, temperatura)
     end
 end
 
-% Funkcija za najbližjega soseda
+% Funkcija za najbližjega soseda (dodatno
 function T = nearestNeighbor(x, y, temperature, x_target, y_target)
     distances = sqrt((x - x_target).^2 + (y - y_target).^2);
     [neki, idx] = min(distances);
